@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -19,11 +18,11 @@
     <!-- Sidebar -->
     <div class="bg-primary border-right text-white" id="sidebar-wrapper">
       <div class="sidebar-heading">MyBlog </div>
-      <div class="list-group list-group-flush bg-primary text-white">      
+      <div class="list-group list-group-flush bg-primary text-white">
         <a href="<?='dashboard.php';?>" class="list-group-item list-group-item-action bg-info text-white active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="<?='dashboard.php?module=artikel&page=daftar-artikel';?>" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-newspaper"></i> Artikel</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-address-card"></i> About</a>
-        <a href="#" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-layer-group"></i> Produk</a>
+        <a href="<?='dashboard.php?module=produk&page=daftar-produk';?>" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-layer-group"></i> Produk</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-wrench"></i> Layanan</a>
         <a href="#" class="list-group-item list-group-item-action bg-primary text-white"><i class="fas fa-id-card-alt"></i> Kontak</a>
       </div>
@@ -47,7 +46,7 @@
               <i class="fas fa-user"></i> Admin
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="profil.php"><i class="fas fa-edit"></i> Profile</a>
+                <a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Profile</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
               </div>
@@ -57,16 +56,13 @@
       </nav>
 
       <div class="container-fluid">
-
-    <?php
-    $page = 'page/dashboard-main.php';
-    if(isset($_GET['module'])){
-      $page = 'page/'.$_GET['module'].'/'.$_GET['page'].'.php';
-    }
-    
-    require($page);
-    ?>
-
+      <?php
+        $page= 'page/dashboard-main.php';
+        if(isset($_GET['module'])){
+          $page = 'page/'.$_GET['module'].'/'.$_GET['page'].'.php';
+        }
+        require($page);
+      ?>
 
       </div><!--END container-fluid-->
     </div>
@@ -96,11 +92,3 @@
 
   </body>
 </html>
-
-<?php
-session_start();
-if (!isset($_SESSION['admin_id'])) {
-    header('Location: login.php');
-    exit;
-}
-

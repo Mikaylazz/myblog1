@@ -1,12 +1,9 @@
 <?php
-
-require_once('../Koneksi.php');
-
-class Artikel extend Koneksi{
+require_once('Koneksi.php');
+class Artikel extends Koneksi{
     private $conn;
-
     public function __construct(){
-        parent:: __construct();
+        parent::__construct();
         $this->conn = $this->getConnection();
     }
 
@@ -15,16 +12,16 @@ class Artikel extend Koneksi{
 
         $result = $this->conn->query($query);
 
-        $data = arrat();
+        $data = array();
 
-        if($result->num_row > 0){
+        if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                $data[] = $row;
+                $data[] =$row;
             }
         }
         return $data;
     }
 }
 
-$artikel = new Artikel();
-print_r($artikel);
+// $artikel = new Artikel();
+// print_r($artikel->getAll());
