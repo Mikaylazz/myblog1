@@ -7,38 +7,44 @@
           </button>
         </div>
 
-        <div class="row">
-          <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2 bg-primary">
-                  <div class="card-body ">
-                      <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white mb-1">Artikel</div>
-                          <div class="h5 mb-0 font-weight-bold text-white">0</div>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fas fa-newspaper fa-4x text-white"></i>
-                      </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <a href="<?= 'dashboard.php?module=artikel&page=daftar-detailproduk'; ?>" class="text-decoration-none">
+        <div class="card border-left-primary shadow h-100 py-2 bg-primary">
+        <div class="card-body ">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-white mb-1">Kategori Produk</div>
+                    <div class="h5 mb-0 font-weight-bold text-white">0</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-info-circle fa-4x text-white"></i>
+                </div>
+            </div>
+        </div>
+        </div>
+            </a>
+    </div>
 
-          <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2 bg-warning">
-                  <div class="card-body ">
-                      <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white mb-1">Produk</div>
-                          <div class="h5 mb-0 font-weight-bold text-white rounded-circle">0</div>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fas fa-address-card fa-4x text-white"></i>
-                      </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
+    <div class="col-xl-4 col-md-6 mb-4">
+            <a href="<?= 'dashboard.php?module=produk&page=daftar-produk'; ?>" class="text-decoration-none">
+            <div class="card border-left-primary shadow h-100 py-2 bg-warning">
+                <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-white mb-1">Produk</div>
+                    <div class="h5 mb-0 font-weight-bold text-white rounded-circle">0</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-layer-group fa-4x text-white"></i>
+                </div>
+                </div>
+            </div>
+            </div>  
+            </a>
+    </div>
+
 
           <div class="col-xl-4 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2 bg-success">

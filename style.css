@@ -1,79 +1,286 @@
-body{
-    font: 16px/28px arial, sans-serif;
-    background: #eaeaea;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: #002147;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}
+
+.logo span {
+    color: white;
+}
+
+.menu-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    margin: 0 20px;
+    max-width: 600px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+    background-color: red;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-btn {
+    background-color: white;
+    color: #002147;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart-icon {
+    font-size: 18px;
+    color: white;
+}
+
+.top-menu {
+    background-color: #00172e;
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+}
+
+.top-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    background-color: #ddd;
+}
+
+.slide-wrapper {
+    display: flex;
+    width: 300%;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+    object-fit: cover;
+}
+
+.slide.active {
+    display: block;
+}
+
+.flash-sale {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.flash-sale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.flash-sale-header h2 {
+    font-size: 20px;
     color: #333;
 }
 
-.container{
-    width: 960px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px 20px 0px 20px;
-    box-sizing: border-box;
-    border:1px solid #fff;
+.btn-all-products {
+    background-color: white;
+    border: 1px solid #f57224;
+    color: #f57224;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
-.header ul {
-    margin: 0;
-    padding: 0;
-}
-.header ul li{
-    display: inline-block;
-    margin-bottom: 15px;
-}
-.header ul li a{
-    text-decoration: none;
-    color: salmon;
-    margin-right: 10px;
-    padding: 5px;
+.flash-sale-products {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
 }
 
-.header ul li a:hover{
-    background-color: lightskyblue;
-    color:#fff;
-    background-size: cover;
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    width: 180px;
+    min-width: 180px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.header ul li.login {
-    float: right;
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
 }
 
-.hero{
-    height: 300px;
-    background-image: url(img/hero.jpg);
-    background-size: 960px 300px;
-    background-repeat: no-repeat;
-    border-top: 3px solid salmon;
-    border-bottom: 3px solid lightskyblue;
-    background-position: -5px 0;
+.product-info {
+    padding: 10px;
 }
 
-.content .main{
-    width: 580px;
-    float: left;
-    text-align: justify;
-    padding-right:15px; 
-    border-right:solid 1px salmon;
+.product-title {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    height: 38px;
+    overflow: hidden;
 }
-.content .main .penulis{
+
+.product-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f57224;
+}
+
+.product-discount {
+    display: block;
     font-size: 12px;
-    margin-top: -20px
+    color: #999;
+    text-decoration: line-through;
 }
 
-.content .sidebar{
-    width: 300px;
-    float: right;
-    padding: 5px;
-}
-.content .sidebar img{
-    width: 80px;
-    height: 100px;
-    float: left;
-    margin-top:20px;
-    margin-right: 15px;
-    border:1px solid #666;
+.kategori {
+    padding: 20px;
+    background-color: #fff;
 }
 
-.content .clear{
-    clear: left;
+.kategori h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.kategori-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.kategori-item {
+    width: 100px;
+    text-align: center;
+}
+
+.kategori-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.kategori-item p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #333;
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 30px 20px;
+    font-size: 14px;
+    color: #333;
+    border-top: 1px solid #ccc;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-column {
+    flex: 1 1 220px;
+    margin: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+.footer-column p,
+.footer-column a,
+.footer-column li {
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-column ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.store-badge {
+    width: 120px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.sosmed-icons i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #333;
 }

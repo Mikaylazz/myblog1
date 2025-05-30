@@ -19,7 +19,7 @@ $result = $conn->query($query);
   <?php while($row = $result->fetch_assoc()) { ?>
     <div class="col-md-4 mb-4">
       <div class="card h-100">
-        <img src="../../img/pensil.jpeg" class="card-img-top" alt="<?= $row['nama_produk']; ?>">
+        <img src="/MYBLOG.COM/img/download.jpeg" class="card-img-top" alt="<?= $row['nama_produk']; ?>">
         <div class="card-body">
           <h5 class="card-title"><?= $row['nama_produk']; ?></h5>
           <p class="card-text"><strong>Merk:</strong> <?= $row['merk_produk']; ?></p>

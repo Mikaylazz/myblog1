@@ -15,7 +15,7 @@ $row = $result->fetch_assoc();
 
 <div class="row">
   <div class="col-md-5">
-    <img src="/img/pensil.jpeg" class="card-img-top" alt="<?= $row['nama_produk']; ?>">
+    <img src="/MYBLOG.COM/img/download.jpeg" class="card-img-top" alt="<?= $row['nama_produk']; ?>">
   </div>
   <div class="col-md-7">
     <h3><?= $row['nama_produk']; ?></h3>
