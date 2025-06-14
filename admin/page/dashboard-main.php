@@ -1,64 +1,71 @@
-        <h2 class="mt-4 mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-          <strong>Hi,</strong> Selamat Datang Mikayla
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+<div class="container mt-4">
+  <h2 class="mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
 
-    <div class="row">
-        <div class="col-xl-4 col-md-6 mb-4">
-            <a href="<?= 'dashboard.php?module=artikel&page=daftar-detailproduk'; ?>" class="text-decoration-none">
-        <div class="card border-left-primary shadow h-100 py-2 bg-primary">
-        <div class="card-body ">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-white mb-1">Kategori Produk</div>
-                    <div class="h5 mb-0 font-weight-bold text-white">0</div>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-info-circle fa-4x text-white"></i>
-                </div>
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>Hi,</strong> Selamat Datang Mikayla
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Kategori Produk -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <a href="dashboard.php?module=kategori-produk&page=daftar-detailproduk" class="text-decoration-none">
+        <div class="card bg-primary text-white shadow h-100 p-4" style="min-height: 160px;">
+          <div class="d-flex justify-content-between align-items-center h-100">
+            <div>
+              <div class="h5 fw-bold mb-0">Kategori Produk</div>
             </div>
-        </div>
-        </div>
-            </a>
-    </div>
-
-
-    <div class="col-xl-4 col-md-6 mb-4">
-            <a href="<?= 'dashboard.php?module=produk&page=daftar-produk'; ?>" class="text-decoration-none">
-            <div class="card border-left-primary shadow h-100 py-2 bg-warning">
-                <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-white mb-1">Produk</div>
-                    <div class="h5 mb-0 font-weight-bold text-white rounded-circle">0</div>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-layer-group fa-4x text-white"></i>
-                </div>
-                </div>
-            </div>
-            </div>  
-            </a>
-    </div>
-
-
-          <div class="col-xl-4 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2 bg-success">
-                  <div class="card-body ">
-                      <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white mb-1">Layanan</div>
-                          <div class="h5 mb-0 font-weight-bold text-white">0</div>
-                      </div>
-                      <div class="col-auto">
-                          <i class="fas fa-wrench fa-4x text-white"></i>
-                      </div>
-                      </div>
-                  </div>
-              </div>
+            <i class="fas fa-info-circle fa-3x"></i>
           </div>
-        </div><!--END row-->        
+        </div>
+      </a>
+    </div>
+
+    <!-- Produk -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <a href="dashboard.php?module=produk&page=daftar-produk" class="text-decoration-none">
+        <div class="card bg-warning text-white shadow h-100 p-4" style="min-height: 160px;">
+          <div class="d-flex justify-content-between align-items-center h-100">
+            <div>
+              <div class="h5 fw-bold mb-0">Produk</div>
+            </div>
+            <i class="fas fa-layer-group fa-3x"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Layanan -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <a href="dashboard.php?module=layanan&page=layanan-customer" class="text-decoration-none">
+        <div class="card bg-success text-white shadow h-100 p-4" style="min-height: 160px;">
+          <div class="d-flex justify-content-between align-items-center h-100">
+            <div>
+              <div class="h5 fw-bold mb-0">Layanan</div>
+            </div>
+            <i class="fas fa-wrench fa-3x"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Kontak -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <a href="dashboard.php?module=kontak&page=kontak-detail" class="text-decoration-none">
+        <div class="card bg-danger text-white shadow h-100 p-4" style="min-height: 160px;">
+          <div class="d-flex justify-content-between align-items-center h-100">
+            <div>
+              <div class="h5 fw-bold mb-0">Kontak</div>
+            </div>
+            <i class="fas fa-id-card-alt fa-3x"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>

@@ -5,11 +5,12 @@
     <title>LittleShopping</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header class="header">
         <div class="nav-left">
-            <i class="fa fa-bars menu-icon"></i>
             <div class="logo">LITTLE<span>SHOP</span></div>
         </div>
         <div class="search-bar">
@@ -25,143 +26,73 @@
     <nav class="top-menu">
         <a href="#">Produk Terlaris</a>
         <a href="#">Penuhi Kebutuhan</a>
-        <a href="#">Solusi Outfit</a>
     </nav>
 
     <section class="carousel">
         <div class="slide-wrapper">
-            <img src="img/slide1.jpg" alt="Slide 1" class="slide active">
-            <img src="img/slide2.jpg" alt="Slide 2" class="slide">
-            <img src="img/slide3.jpg" alt="Slide 3" class="slide">
+            <img src="img/slide1.png" alt="Slide 1" class="slide active">
+            <img src="img/slide2.png" alt="Slide 2" class="slide">
+            <img src="img/slide3.png" alt="Slide 3" class="slide">
         </div>
     </section>
 
     <section class="flash-sale">
     <div class="flash-sale-header">
-        <h2>Flash Sale</h2>
+        <h2>Semua Yang Kamu Butuhkan Ada Disini</h2>
         <button class="btn-all-products">BELANJA SEMUA PRODUK</button>
     </div>
 
-    <div class="flash-sale-products">
-        <div class="product-card">
-            <img src="img/produk1.jpg" alt="Produk 1">
-            <div class="product-info">
-                <p class="product-title">AnR Jaket Sweater Hoodie Zipper Polos</p>
-                <p class="product-price">Rp35.900 <span class="product-discount">Rp200.000 - 82%</span></p>
-            </div>
-        </div>
+<div class="flash-sale-products">
+<?php
+require_once(__DIR__ . '/model/Koneksi.php');
+$db = new Koneksi();
+$conn = $db->getConnection();
 
-        <div class="product-card">
-            <img src="img/produk2.jpg" alt="Produk 2">
-            <div class="product-info">
-                <p class="product-title">Vaseline Repairing Petroleum Jelly</p>
-                <p class="product-price">Rp23.300 <span class="product-discount">Rp31.690 - 26%</span></p>
-            </div>
-        </div>
+// Ambil data produk dan gambar
+$query = "SELECT p.id_produk, p.nama_produk, p.harga, g.nama_file 
+          FROM produk p 
+          LEFT JOIN gambar_produk g ON p.id_produk = g.id_produk 
+          ORDER BY p.id_produk DESC LIMIT 8";
+$result = $conn->query($query);
 
-        <div class="product-card">
-            <img src="img/produk3.jpg" alt="Produk 3">
-            <div class="product-info">
-                <p class="product-title">Zwitsal Baby Hair Lotion Aloe Vera</p>
-                <p class="product-price">Rp22.600 <span class="product-discount">Rp29.750 - 24%</span></p>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="img/produk4.jpg" alt="Produk 4">
-            <div class="product-info">
-                <p class="product-title">Zwitsal ESSENTIAL BABY Gift Set</p>
-                <p class="product-price">Rp112.200 <span class="product-discount">Rp144.700 - 22%</span></p>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="img/produk5.jpg" alt="Produk 5">
-            <div class="product-info">
-                <p class="product-title">MamyPoko X-tra Kering Popok Bayi</p>
-                <p class="product-price">Rp197.500 <span class="product-discount">Rp270.890 - 27%</span></p>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="img/produk6.jpg" alt="Produk 6">
-            <div class="product-info">
-                <p class="product-title">FOCALLURE Loose Powder Bedak</p>
-                <p class="product-price">Rp32.000 <span class="product-discount">Rp89.000 - 64%</span></p>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="img/produk6.jpg" alt="Produk 7">
-            <div class="product-info">
-                <p class="product-title">FOCALLURE Loose Powder Bedak</p>
-                <p class="product-price">Rp32.000 <span class="product-discount">Rp89.000 - 64%</span></p>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="img/produk6.jpg" alt="Produk 8">
-            <div class="product-info">
-                <p class="product-title">FOCALLURE Loose Powder Bedak</p>
-                <p class="product-price">Rp32.000 <span class="product-discount">Rp89.000 - 64%</span></p>
-            </div>
+while ($produk = $result->fetch_assoc()) {
+    $gambar = !empty($produk['nama_file']) ? 'img/' . $produk['nama_file'] : 'img/default.jpg'; // default jika tidak ada gambar
+    ?>
+    <div class="product-card">
+        <img src="<?= $gambar; ?>" alt="<?= htmlspecialchars($produk['nama_produk']); ?>">
+        <div class="product-info">
+            <p class="product-title"><?= htmlspecialchars($produk['nama_produk']); ?></p>
+            <p class="product-price">Rp<?= number_format($produk['harga'], 0, ',', '.'); ?></p>
         </div>
     </div>
-    </section>
+    <?php
+}
+?>
+</div>
+</section>
 
-    <section class="kategori">
-    <h2>Semua yang Diskon Abis-abisan!</h2>
+<section class="kategori">
+    <h2>Kategori</h2>
     <div class="kategori-container">
-        <div class="kategori-item">
-            <img src="img/kategori1.jpg" alt="Sepatu sneaker pria">
-            <p>Sepatu sneaker pria</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori2.jpg" alt="Handphone">
-            <p>Handphone</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori3.jpg" alt="Hijab Wanita">
-            <p>Hijab Wanita</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori4.jpg" alt="T-Shirt Pria">
-            <p>T-Shirt Pria</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori5.jpg" alt="Dress Wanita">
-            <p>Dress Wanita</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori6.jpg" alt="Celana Chino Pria">
-            <p>Celana Chino Pria</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori7.jpg" alt="Vitamin">
-            <p>Vitamin</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori8.jpg" alt="Serum & Essens Kulit">
-            <p>Serum & Essens Kulit</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori9.jpg" alt="Wireless Earbud">
-            <p>Wireless Earbud</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori10.jpg" alt="Speaker Bluetooth">
-            <p>Speaker Bluetooth</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori11.jpg" alt="Parfum Unisex">
-            <p>Parfum Unisex</p>
-        </div>
-        <div class="kategori-item">
-            <img src="img/kategori12.jpg" alt="Tas Wanita">
-            <p>Tas Wanita</p>
-        </div>
+        <?php
+        require_once(__DIR__ . '/model/Koneksi.php');
+        $db = new Koneksi();
+        $conn = $db->getConnection();
+
+        $query = "SELECT id_kategori, jenis_produk FROM kategori_produk";
+        $result = $conn->query($query);
+
+        while ($kategori_produk = $result->fetch_assoc()) {
+            ?>
+            <div class="kategori-item">
+                <p class="kategori-nama"><?= htmlspecialchars($kategori_produk['jenis_produk']); ?></p>
+            </div>
+            <?php
+        }
+        ?>
     </div>
-    </section>
+</section>
+
 
     <script>
         let current = 0;
@@ -178,7 +109,7 @@
         <div class="footer-column">
             <h4>Bantuan</h4>
             <p>Telepon<br><strong>08**-1***-87*</strong></p>
-            <p>Email<br><a href="mailto:customer.care@blibli.com">customer.care@blibli.com</a></p>
+            <p>Email<br><a href="mailto:customer.care@littleshopping.com">customer.care@LittleShopping.com</a></p>
             <p><a href="#">Halaman Bantuan</a></p>
             <p><a href="#">LSwithCare</a></p>
             <p>Layanan Pengaduan Konsumen<br>
@@ -189,7 +120,7 @@
         </div>
 
         <div class="footer-column">
-            <h4>Info Blibli</h4>
+            <h4>Info LittleShopping</h4>
             <ul>
                 <li><a href="#">Tentang Little Shopping</a></li>
                 <li><a href="#">Website Little Shopping Friends</a></li>
@@ -208,16 +139,16 @@
                 <li><a href="#">Jual di Little Shopping</a></li>
                 <li><a href="#">LS Program</a></li>
             </ul>
-            <h4>Blibli Family</h4>
-            <p><img src="img/tiket.png" alt="Voucher" style="height:20px;"> tiket.com</p>
-            <p><img src="img/garasi.png" alt="Garasi.id" style="height:20px;"> Garasi.id</p>
+            <h4>LittleShopping Family</h4>
+            <p>voucher.com</p>
+            <p>diskon.com</p>
         </div>
 
         <div class="footer-column">
             <h4>Download Aplikasi</h4>
-            <img src="img/googleplay.png" alt="Google Play" class="store-badge">
-            <img src="img/appstore.png" alt="App Store" class="store-badge">
-            <img src="img/appgallery.png" alt="AppGallery" class="store-badge">
+            <img src="img/googleplay.jpg" alt="Google Play" class="store-badge">
+            <img src="img/appstore.jpg" alt="App Store" class="store-badge">
+            <img src="img/appgalery.png" alt="AppGallery" class="store-badge">
 
             <h4>Ikuti Kami</h4>
             <div class="sosmed-icons">
